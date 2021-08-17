@@ -31,7 +31,19 @@ pool.query(`COPY products FROM '${path.join(dirPath, 'product.csv')}' DELIMITER 
             pool.query(`INSERT INTO relateds SELECT * FROM intermediaries WHERE related_product_id != 0`, (err, res) => {
               if (err) {console.log('Relateds:', err)}
               if (res) {console.log('Successfully inserted relateds')}
-              pool.end();
+              pool.query(`CREATE INDEX styles_productId_fkey ON styles ("productId" ASC);`, (err, res) => {
+                if (err) {console.log(err)}
+                if (res) {console.log(`Successfully created fkey index for styles`)}
+                pool.query(`CREATE INDEX photos_styleId_fkey ON photos ("styleId" ASC);`, (err, res) => {
+                  if (err) {console.log(err)}
+                  if (res) {console.log(`Successfully created fkey index for photos`)}
+                  pool.query(`CREATE INDEX skus_styleId_fkey on skus ("styleId" ASC);`, (err, res) => {
+                    if (err) {console.log(err)}
+                    if (res) {console.log(`Successfully created fkey index for skus`)}
+                    pool.end();
+                  });
+                });
+              });
             });
           });
         });

@@ -19,9 +19,9 @@
   },
   "scripts": {
     "test": "jest",
-    "light-hit": "node Artillery/search-and-find.yml",
+    "light-hit": "artillery run spec/Artillery/search-and-find.yml",
     "build": "node database/db-build.js",
-    "fill": "database/db-fill.js",
+    "fill": "node database/db-fill.js",
     "start": "node server/app.js"
   },
   "repository": {
