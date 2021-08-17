@@ -32,7 +32,7 @@ sequelize.authenticate().then(async() => {
   },
   {
     sequelize,
-    modelName: 'Products',
+    modelName: 'product',
     timestamps: false
   });
 
@@ -67,7 +67,7 @@ sequelize.authenticate().then(async() => {
   },
   {
     sequelize,
-    modelName: 'Styles',
+    modelName: 'style',
     timestamps: false
   });
 
@@ -95,7 +95,7 @@ sequelize.authenticate().then(async() => {
   },
   {
     sequelize,
-    modelName: 'SKUS',
+    modelName: 'skus',
     timestamps: false
   });
 
@@ -125,7 +125,7 @@ sequelize.authenticate().then(async() => {
   },
   {
     sequelize,
-    modelName: 'Photos',
+    modelName: 'photos',
     timestamps: false
   });
 
@@ -155,7 +155,7 @@ sequelize.authenticate().then(async() => {
   },
   {
     sequelize,
-    modelName: 'Related',
+    modelName: 'related',
     timestamps: false
   });
 
@@ -183,7 +183,7 @@ sequelize.authenticate().then(async() => {
   },
   {
     sequelize,
-    modelName: 'Features',
+    modelName: 'feature',
     timestamps: false
   });
 
@@ -203,7 +203,7 @@ sequelize.authenticate().then(async() => {
   },
   {
     sequelize,
-    modelName: 'Intermediary',
+    modelName: 'intermediaries',
     timestamps: false
   })
 
