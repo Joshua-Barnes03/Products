@@ -1,6 +1,7 @@
 # Install and Set Up
 
 First, you'll have to install postgres on the device
+Update the postgres user to have the password 'password'
 Start the postgres server, then create the atelier database using the following command:
   CREATE DATABASE atelier;
 
