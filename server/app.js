@@ -18,5 +18,10 @@ app.get('/products/:product_id/styles', queries.Styles.getOne);
 
 app.get('/products/:product_id/related', queries.Related.getAll)
 
+app.get('/loaderio-442de13460a798742b2b3529ddd00927.txt', (req, res) => {
+  res.download('Loader/loaderio-442de13460a798742b2b3529ddd00927.txt');
+  res.end();
+});
+
 app.listen(app.get('port'));
 console.log('Listening on ', app.get('port'));

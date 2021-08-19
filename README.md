@@ -27,6 +27,10 @@ After the database has been built and filled with data, run the following script
 
 Congratulations. The database is filled and the server is up and operational!
 
+# Rerouting
+Don't forget to update the iptables!
+
+
 # Testing
 Note: axios is installed for the purposes of unit testing with jest
 
