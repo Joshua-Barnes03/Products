@@ -18,5 +18,10 @@ app.get('/products/:product_id/styles', queries.Styles.getOne);
 
 app.get('/products/:product_id/related', queries.Related.getAll)
 
+const {loader} = require('../loader.txt');
+app.get('/loaderio-442de13460a798742b2b3529ddd00927.txt', (req, res) => {
+  res.send(loader)
+});
+
 app.listen(app.get('port'));
 console.log('Listening on ', app.get('port'));
