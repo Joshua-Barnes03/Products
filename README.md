@@ -1,10 +1,19 @@
+# Connecting to SSH instace
+to connect
+  ssh -i file.pem ubuntu@ip.address
+run the following commands on the AWS instance to update it
+  sudo apt-get update && sudo apt-get upgrade -y
+
 # Install and Set Up
 
 First, you'll have to install postgres on the device
+  sudo apt install postgresql
 Update the postgres user to have the password 'password'
 Start the postgres server, then create the atelier database using the following command:
   CREATE DATABASE atelier;
 
+Then get node with
+  curl -sL hhtps://deb.nodesource.com/setup_14.x | sudo -E bash -
 Run npm install to get access to all the necessary node_modules, then run the following scripts in order:
   npm run build
   <!-- npm run fill -->
