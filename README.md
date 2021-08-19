@@ -7,8 +7,9 @@ Start the postgres server, then create the atelier database using the following 
 
 Run npm install to get access to all the necessary node_modules, then run the following scripts in order:
   npm run build
-  npm run fill
-Let both scripts finish running or else the tables will not be ready to accept the data
+  <!-- npm run fill -->
+<!-- Let both scripts finish running or else the tables will not be ready to accept the data -->
+CANNOT USE THE FILL SCRIPT, ADDING THE CVS DATA THE INSTANCE IS TOO MEMORY INTENSIVE
 
 Note: Some of the related data is bad so it is important to use the intermediary table to get all the data into the database, then pass only the data you need into the relateds table.
 
@@ -28,3 +29,7 @@ To test the server's capabilities locally, make sure the server is running and r
   npm run light-hit
 
 These are scripts to run different levels of Artillery.io tests, ramping up in difficulty.
+
+# Ongoing Service
+To run the service even when disconnected from the shell, use npm run pm2-start script
+To stop it, run npm run pm2-stop
