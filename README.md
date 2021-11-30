@@ -1,53 +1,3 @@
-# Connecting to SSH instace
-to connect
-  ssh -i file.pem ubuntu@ip.address
-run the following commands on the AWS instance to update it
-  sudo apt-get update && sudo apt-get upgrade -y
-
-# Install and Set Up
-
-First, you'll have to install postgres on the device
-  sudo apt install postgresql
-Update the postgres user to have the password 'password'
-Start the postgres server, then create the atelier database using the following command:
-  CREATE DATABASE atelier;
-
-Then get node with
-  curl -sL hhtps://deb.nodesource.com/setup_14.x | sudo -E bash -
-Run npm install to get access to all the necessary node_modules, then run the following scripts in order:
-  npm run build
-  <!-- npm run fill -->
-<!-- Let both scripts finish running or else the tables will not be ready to accept the data -->
-CANNOT USE THE FILL SCRIPT, ADDING THE CVS DATA THE INSTANCE IS TOO MEMORY INTENSIVE
-
-Note: Some of the related data is bad so it is important to use the intermediary table to get all the data into the database, then pass only the data you need into the relateds table.
-
-After the database has been built and filled with data, run the following script:
-  npm start
-
-Congratulations. The database is filled and the server is up and operational!
-
-# Rerouting
-Don't forget to update the iptables!
-
-
-# Testing
-Note: axios is installed for the purposes of unit testing with jest
-
-To make sure the database and server are both operational, make sure the server is not running and run the following command:
-  npm run test
-This will run a very brief series of unit tests to make sure everything install correctly.
-
-To test the server's capabilities locally, make sure the server is running and run one of the following commands:
-  npm run light-hit
-
-These are scripts to run different levels of Artillery.io tests, ramping up in difficulty.
-
-# Ongoing Service
-To run the service even when disconnected from the shell, use npm run pm2-start script
-To stop it, run npm run pm2-stop
-
-
 # Project-Atelier (Products)
 
 This is the products service for Project-Atelier, the back-end of an e-commerce website. 
@@ -77,7 +27,8 @@ This service is designed to serve as the back-end for an e-commerce website's pr
 * If you need to fill the database with clean data, run this script: `npm run fill`.
 * To start the server, use: `npm start`.
 * If starting the deployed server, use: `npm run pm2 start`. This will run the server without requiring a terminal to manage it. You can sign out of the deployed instance without shutting off the server in this way. To stop it, run: `npm run pm2 stop`.
-* To test the program locally, or to make sure it is operating correctly, you can use: `npm run test` or `npm run light-hit` for jest or artillery respectively.
+* To make sure the server and database are both working correctly, make sure the server is not running, then use: `npm run test`. This will run a test using Jest to make sure both parts of the service are functioning.
+* To make test the services load-bearing functionality, make sure the server is running, then use: `npm run light-hit`. This is a warm-up test using Artillery.io. This just certifies the service is able to handle use. Large scale testing should be saved for the deployed service.
 
 ## Help
 
